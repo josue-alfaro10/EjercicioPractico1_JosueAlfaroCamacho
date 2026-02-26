@@ -50,14 +50,16 @@
 
                     <li class="nav-item">
                         <a class="nav-link text-white"
-                           th:href="@{/}">
+                           th:href="@{/reserva/listado}">
                             Reservas
                         </a>
                     </li>
-
+                    
+                    <!<!-- el formulario aparece cuando se estripa contacto pero solo aparece en la pagina de inicio al final  -->
                     <li class="nav-item">
                         <a class="nav-link text-white"
-                           th:href="@{/}">
+                           href="javascript:void(0);"
+                           onclick="mostrarFormulario();">
                             Contacto
                         </a>
                     </li>
@@ -65,6 +67,7 @@
                 </ul>
             </div>
         </nav>
+
 
         <!-- FOOTER -->
         <footer th:fragment="footer"
@@ -77,6 +80,7 @@
                 <a href="#" class="text-white mx-2"><i class="fa-brands fa-instagram fa-lg"></i></a>
             </div>
         </footer>
+
 
     </body>
 </html>

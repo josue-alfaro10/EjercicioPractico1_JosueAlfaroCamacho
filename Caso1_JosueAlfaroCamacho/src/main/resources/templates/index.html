@@ -9,7 +9,7 @@
 
         <div class="container mt-5">
 
-            <!-- Publicidad principal -->
+            
             <div class="text-center mb-5">
                 <h2 style="color:#6b4f4f;">
                     Realza tu Belleza Natural
@@ -20,14 +20,14 @@
                 </p>
             </div>
 
-            <!-- Promociones -->
+           
             <div class="row text-center mb-5">
 
                 <div class="col-md-4">
                     <div class="card shadow">
                         <div class="card-body">
                             <h5 style="color:#d4af37;">
-                                💇‍♀️ Promo Cabello
+                                ️ Promo Cabello
                             </h5>
                             <p>20% descuento en tintes y balayage.</p>
                         </div>
@@ -38,7 +38,7 @@
                     <div class="card shadow">
                         <div class="card-body">
                             <h5 style="color:#d4af37;">
-                                💅 Promo Uñas
+                                 Promo Uñas
                             </h5>
                             <p>Manicure + pedicure con precio especial.</p>
                         </div>
@@ -49,7 +49,7 @@
                     <div class="card shadow">
                         <div class="card-body">
                             <h5 style="color:#d4af37;">
-                                🌸 Promo Spa
+                                 Promo Spa
                             </h5>
                             <p>Masaje relajante con 15% descuento.</p>
                         </div>
@@ -63,14 +63,52 @@
                 <h3 style="color:#6b4f4f;">Conoce Acerca de Nosotros</h3>
 
                 <iframe width="560" height="315"
-                        src="https://youtu.be/4gRUOdXXZVY?si=-MRI3Xg_8zJlEgjh"
+                        src="https://www.youtube.com/embed/otoAEt7cnU4?si=tlFbzHdJhAZdY14O"
                         allowfullscreen>
                 </iframe>
             </div>
 
         </div>
+        
+
+        <!-- FORMULARIO OCULTO -->
+        <div id="formulario" class="container mt-5" style="display:none;">
+            <div class="card shadow p-4">
+                <h3 class="text-center mb-3">Formulario de Contacto</h3>
+
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Correo</label>
+                        <input type="email" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Mensaje</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="button" class="btn btn-dark">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <div th:replace="~{general/fragmentos :: footer}"></div>
+
+        <!-- SCRIPT -->
+        <script>
+            function mostrarFormulario() {
+                document.getElementById("formulario").style.display = "block";
+            }
+        </script>
 
     </body>
 </html>

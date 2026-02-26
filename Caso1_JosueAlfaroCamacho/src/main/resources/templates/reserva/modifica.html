@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/fragmentos :: head}"></head>
+
+    <body style="background-color:#fdf6ec;">
+
+        <div th:replace="~{general/fragmentos :: header}"></div>
+        <div th:replace="~{general/fragmentos :: navbar}"></div>
+
+        <div class="container mt-5">
+
+            <h2>Reserva</h2>
+
+            <form th:action="@{/reserva/guardar}" th:object="${reserva}" method="post">
+
+                <input type="hidden" th:field="*{id}" />
+
+                <label>Nombre Cliente</label>
+                <input type="text" th:field="*{nombreCliente}" />
+
+
+                <label>Fecha</label>
+                <input type="date" th:field="*{fecha}" />
+
+
+                <label>Servicio</label>
+                <select th:field="*{servicio}">
+                    <option th:each="serv : ${servicios}"
+                            th:value="${serv}"
+                            th:text="${serv.nombre}">
+                    </option>
+                </select>
+
+                <button type="submit">Guardar</button>
+                <a th:href="@{/categoria/listado}"
+                   class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </form>
+        </div>
+
+    </div>
+
+    <div th:replace="~{general/fragmentos :: footer}"></div>
+
+</body>
+</html>

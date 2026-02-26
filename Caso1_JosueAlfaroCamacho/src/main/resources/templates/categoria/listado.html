@@ -39,16 +39,19 @@
                                 <td th:text="${cat.id}"></td>
                                 <td th:text="${cat.nombre}"></td>
 
-                                <td class="text-center">
-                                    <a th:href="@{/categoria/modifica/{id}(id=${cat.id})}"
-                                       class="btn btn-sm btn-warning">
+                                <!-- EDITAR -->
+                                <td>
+                                    <a th:href="@{/categoria/modificar/{id}(id=${cat.id})}">
                                         Editar
                                     </a>
+                                </td>
 
-                                    <a th:href="@{/categoria/eliminar/{id}(id=${cat.id})}"
-                                       class="btn btn-sm btn-danger">
-                                        Eliminar
-                                    </a>
+                                <!-- ELIMINAR -->
+                                <td>
+                                    <form th:action="@{/categoria/eliminar}" method="post">
+                                        <input type="hidden" name="id" th:value="${cat.id}" />
+                                        <button type="submit">Eliminar</button>
+                                    </form>
                                 </td>
                             </tr>
                         </tbody>

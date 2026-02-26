@@ -4,10 +4,15 @@
  */
 package Caso1_JosueAlfaroCamacho.repository;
 
+import Caso1_JosueAlfaroCamacho.domain.Reserva;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 /**
  *
  * @author Alfaro
  */
-public class ReservaRepository {
+@Repository
+public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
     
 }

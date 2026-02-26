@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/fragmentos :: head}"></head>
+
+    <body style="background-color:#fdf6ec;">
+
+        <div th:replace="~{general/fragmentos :: header}"></div>
+        <div th:replace="~{general/fragmentos :: navbar}"></div>
+
+        <div class="container mt-5">
+
+            <h2 class="text-center mb-4" style="color:#6b4f4f;">
+
+                <h2>Listado de Reservas</h2>
+                <div class="text-end mb-3">
+                    <a th:href="@{/reserva/nuevo}"
+                       class="btn"
+                       style="background-color:#d4af37; color:white;">
+                        + Nueva Reserva
+                    </a>
+                </div>
+
+                <div class="card shadow">
+                    <div class="card-body">
+
+                        <table class="table table-hover">
+
+                            <thead style="background-color:#f8c8dc;">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Hora</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+
+                                <tr th:each="res : ${reservas}">
+                                    <td th:text="${res.id}"></td>
+                                    <td th:text="${res.nombreCliente}"></td>
+                                    <td th:text="${res.fecha}"></td>
+
+                                    <td>
+                                        <a th:href="@{/reserva/modificar/{id}(id=${res.id})}">
+                                            Editar
+                                        </a>
+                                    </td>
+
+                                    <td>
+                                        <form th:action="@{/reserva/eliminar}" method="post">
+                                            <input type="hidden" name="id" th:value="${res.id}" />
+                                            <button type="submit">Eliminar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                        </table>
