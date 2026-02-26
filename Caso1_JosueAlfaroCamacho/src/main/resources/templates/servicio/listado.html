@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head th:replace="~{general/fragmentos :: head}"/>
+    <body>
+        <header th:replace="~{general/fragmentos :: header}"/>
+
+        <!-- Fragmento para agregar servicio -->
+        <section th:replace="~{servicios/fragmentos :: agregar}"/>
+
+        <!-- Fragmento para listado de servicios -->
+        <section th:replace="~{servicios/fragmentos :: listado}"/>
+
+        <!-- Fragmento para confirmar eliminación -->
+        <section th:replace="~{servicios/fragmentos :: confirmarEliminar}"/>
+
+        <!-- Toast de notificación -->
+        <section th:replace="~{general/fragmentos :: mostrarToast}"/>
+
+        <footer th:replace="~{general/fragmentos :: footer}"/>
+    </body>
+</html>
+
