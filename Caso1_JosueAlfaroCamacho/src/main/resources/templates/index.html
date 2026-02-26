@@ -1,11 +1,76 @@
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
-<body>
-    <div class="text-center">
-        <h2>Bienvenidos al Salón de Belleza</h2>
-        <p>Descubre nuestro nuevo servicio: <strong>Balayage Premium</strong></p>
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID" width="560" height="315"></iframe>
-    </div>
-</body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/fragmentos :: head}"></head>
+
+    <body style="background-color:#fdf6ec;">
+
+        <div th:replace="~{general/fragmentos :: header}"></div>
+        <div th:replace="~{general/fragmentos :: navbar}"></div>
+
+        <div class="container mt-5">
+
+            <!-- Publicidad principal -->
+            <div class="text-center mb-5">
+                <h2 style="color:#6b4f4f;">
+                    Realza tu Belleza Natural
+                </h2>
+                <p>
+                    En Salón JAC contamos con los mejores estilistas,
+                    tratamientos de cabello, uñas, spa y barbería.
+                </p>
+            </div>
+
+            <!-- Promociones -->
+            <div class="row text-center mb-5">
+
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 style="color:#d4af37;">
+                                💇‍♀️ Promo Cabello
+                            </h5>
+                            <p>20% descuento en tintes y balayage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 style="color:#d4af37;">
+                                💅 Promo Uñas
+                            </h5>
+                            <p>Manicure + pedicure con precio especial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 style="color:#d4af37;">
+                                🌸 Promo Spa
+                            </h5>
+                            <p>Masaje relajante con 15% descuento.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Video iframe -->
+            <div class="text-center mb-5">
+                <h3 style="color:#6b4f4f;">Conoce Acerca de Nosotros</h3>
+
+                <iframe width="560" height="315"
+                        src="https://youtu.be/4gRUOdXXZVY?si=-MRI3Xg_8zJlEgjh"
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+        </div>
+
+        <div th:replace="~{general/fragmentos :: footer}"></div>
+
+    </body>
 </html>
-
-

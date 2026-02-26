@@ -1,22 +1,77 @@
 <!DOCTYPE html>
-<html>
-    <head th:replace="~{general/fragmentos :: head}"/>
-    <body>
-        <header th:replace="~{general/fragmentos :: header}"/>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/fragmentos :: head}"></head>
 
-        <!-- Fragmento para agregar servicio -->
-        <section th:replace="~{servicios/fragmentos :: agregar}"/>
+    <body style="background-color:#fdf6ec;">
 
-        <!-- Fragmento para listado de servicios -->
-        <section th:replace="~{servicios/fragmentos :: listado}"/>
+        <div th:replace="~{general/fragmentos :: header}"></div>
+        <div th:replace="~{general/fragmentos :: navbar}"></div>
 
-        <!-- Fragmento para confirmar eliminación -->
-        <section th:replace="~{servicios/fragmentos :: confirmarEliminar}"/>
+        <div class="container mt-5">
 
-        <!-- Toast de notificación -->
-        <section th:replace="~{general/fragmentos :: mostrarToast}"/>
+            <h2 class="text-center mb-4" style="color:#6b4f4f;">
+                Servicios del Salón
+            </h2>
 
-        <footer th:replace="~{general/fragmentos :: footer}"/>
+            <div class="text-end mb-3">
+                <a th:href="@{/servicio/nuevo}"
+                   class="btn"
+                   style="background-color:#d4af37; color:white;">
+                    + Nuevo Servicio
+                </a>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-body">
+
+                    <table class="table table-hover">
+
+                        <thead style="background-color:#f8c8dc;">
+                            <tr>
+                                <th>ID</th>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                                <th>Categoría</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr th:each="serv : ${servicios}">
+
+                                <td th:text="${serv.id}"></td>
+                                <td th:text="${serv.nombre}"></td>
+                                <td th:text="${serv.precio}"></td>
+                                <td th:text="${serv.categoria.nombre}"></td>
+
+                                <!-- EDITAR -->
+                                <td>
+                                    <a th:href="@{/servicio/modificar/{id}(id=${serv.id})}">
+                                        Editar
+                                    </a>
+                                </td>
+
+                                <!-- ELIMINAR -->
+                                <td>
+                                    <form th:action="@{/servicio/eliminar}" method="post">
+                                        <input type="hidden" name="id" th:value="${serv.id}" />
+                                        <button type="submit">Eliminar</button>
+                                    </form>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div th:replace="~{general/fragmentos :: footer}"></div>
+
     </body>
 </html>
 

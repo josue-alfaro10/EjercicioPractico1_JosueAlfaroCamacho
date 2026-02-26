@@ -1,22 +1,66 @@
 <!DOCTYPE html>
-<html>
-    <head th:replace="~{general/fragmentos :: head}"/>
-    <body>
-        <header th:replace="~{general/fragmentos :: header}"/>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{general/fragmentos :: head}"></head>
 
-        <!-- Fragmento para agregar categoría -->
-        <section th:replace="~{categorias/fragmentos :: agregar}"/>
+    <body style="background-color:#fdf6ec;">
 
-        <!-- Fragmento para listado de categorías -->
-        <section th:replace="~{categorias/fragmentos :: listado}"/>
+        <div th:replace="~{general/fragmentos :: header}"></div>
+        <div th:replace="~{general/fragmentos :: navbar}"></div>
 
-        <!-- Fragmento para confirmar eliminación -->
-        <section th:replace="~{categorias/fragmentos :: confirmarEliminar}"/>
+        <div class="container mt-5">
 
-        <!-- Toast de notificación -->
-        <section th:replace="~{general/fragmentos :: mostrarToast}"/>
+            <h2 class="text-center mb-4" style="color:#6b4f4f;">
+                Categorías del Salón
+            </h2>
 
-        <footer th:replace="~{general/fragmentos :: footer}"/>
+            <div class="text-end mb-3">
+                <a th:href="@{/categoria/nuevo}"
+                   class="btn"
+                   style="background-color:#d4af37; color:white;">
+                    + Nueva Categoría
+                </a>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-body">
+
+                    <table class="table table-hover">
+
+                        <thead style="background-color:#f8c8dc;">
+                            <tr>
+                                <th>ID</th>
+                                <th>Descripción</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr th:each="cat : ${categorias}">
+                                <td th:text="${cat.id}"></td>
+                                <td th:text="${cat.nombre}"></td>
+
+                                <td class="text-center">
+                                    <a th:href="@{/categoria/modifica/{id}(id=${cat.id})}"
+                                       class="btn btn-sm btn-warning">
+                                        Editar
+                                    </a>
+
+                                    <a th:href="@{/categoria/eliminar/{id}(id=${cat.id})}"
+                                       class="btn btn-sm btn-danger">
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div th:replace="~{general/fragmentos :: footer}"></div>
+
     </body>
 </html>
-
